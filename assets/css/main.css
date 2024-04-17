@@ -1306,7 +1306,7 @@ input, select, textarea {
 	}
 
 	body {
-		background-image: url("images/john-towner-3Kv48NS4WUU-unsplash.jpg");
+		background-image: url("images/bg.jpg");
 		background-repeat: repeat, no-repeat;
 		background-size: cover;
 		background-attachment: fixed;
