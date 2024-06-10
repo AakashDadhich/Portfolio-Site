@@ -8,16 +8,29 @@ async function updateCounter(){
 updateCounter();
 
 // Controlling the behaviour of the HTML dialogue elements in the Projects tab
-const crcDialog = document.getElementById('sampleDialog');
-const openButton = document.getElementById('openDialog');
-const closeButton = document.getElementById('closeDialog');
-
-// Event listener to open the dialog
-openButton.addEventListener('click', () => {
+// Cloud Resume Challenge (CRC) modal
+const crcDialog = document.getElementById('CRCDialog');
+const openCRCButton = document.getElementById('openCRCDialog');
+const closeCRCButton = document.getElementById('closeCRCDialog');
+// Event listener to open the CRC dialog
+openCRCButton.addEventListener('click', () => {
   crcDialog.showModal();
 });
-
-// Event listener to close the dialog
-closeButton.addEventListener('click', () => {
+// Event listener to close the CRC dialog
+closeCRCButton.addEventListener('click', () => {
   crcDialog.close();
+});
+
+
+// XYZ Modal
+const xyzDialog = document.getElementById('XYZDialog');
+const openXYZButton = document.getElementById('openXYZDialog');
+const closeXYZButton = document.getElementById('closeXYZDialog');
+// Event listener to open the XYZ dialog
+openXYZButton.addEventListener('click', () => {
+  xyzDialog.showModal();
+});
+// Event listener to close the XYZ dialog
+closeXYZButton.addEventListener('click', () => {
+  xyzDialog.close();
 });

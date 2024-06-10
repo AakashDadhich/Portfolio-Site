@@ -55,7 +55,8 @@
 								<p>
 									I've been working in the cyber security industry for over four years, during which I've 
 									worked across a wide range of offensive and defensive cyber projects, from performing
-									penetration tests for clients to securing their cloud platforms as a cloud engineer.
+									penetration tests for clients to managing the delivery of high-profile security fixes
+									for critical systems across the UK.
 								</p>
 								<hr>
 								<table>
@@ -71,7 +72,7 @@
 								<ul>
 									<li>
 										<b>Spearheaded the delivery of five high-profile cybersecurity epics</b> for a critical UK government cloud platform,
-										 <b>significantly reducing the overall risk posture and accelerating the go-live date.</b>.
+										 <b>significantly reducing the overall risk posture and accelerating the go-live date.</b>
 									</li>
 									<li>
 										Managed a dynamic team of 6 DevSecOps Engineers in an agile manner, <b>setting and achieving fortnightly sprint objectives</b> 
@@ -136,46 +137,114 @@
 									<h2>Some projects of mine</h2>
 								</header>
 								<p>
-									You can find a portfolio of my most recent side-projects below, most of which were created
-									for me to learn about a new technology or pushing myself out of my comfort zone. 
+									You can find a portfolio of my most recent side projects below, most of which were created
+									for me to learn a new technology and pushing myself out of my comfort zone. 
 								</p>
 								<section>
 									<div class="row">
-										<!-- Cloud Resume Challenge thumbnail-->
+										<!-- Cloud Resume Challenge dialog-->
 										<div class="col-4 col-6-medium col-12-small">
-											<a href="#" class="image fit"><img src="images/pic01.jpg" alt=""></a>
-											<center><p>Cloud Resume Challenge. Coming soon!</p></center>
-										</div>
-										<!-- Discord Dungeon Crawler thumbnail-->		
-										<div class="col-4 col-6-medium col-12-small">
-											<a href="#" class="image fit"><img src="images/pic02.jpg" alt=""></a>
-											<center><p>Python/Bash automations. Coming soon!</p></center>
-										</div>
-										<div class="col-4 col-6-medium col-12-small">
-											<a href="#" class="image fit"><img src="images/pic03.jpg" alt=""></a>
-											<center><button id="openDialog">Open dialog</button></center>
+											<a id="openCRCDialog" class="image fit"><img src="images/pic01.jpg" alt=""></a>
+											<center><p>AWS Cloud Resume Challenge</p></center>
+											<dialog id="CRCDialog">
+												<h2>AWS Cloud Resume Challenge</h2>
+												<div align=right>
+													<i>AWS, Terraform, GitHub Actions, Python & JavaScript.</i>
+												</div>
+												<br>
+												<center><img src="images/CRC-HLD.png" alt=""></center>
+												<h4>TL;DR</h4>
+												<p>
+													<b>AWS components:</b> S3, Lambda, IAM, DynamoDB, CloudFront, Route 53.
+													<br>
+													<b>CI/CD pipeline:</b> Automated using GitHub Actions.
+													<br>
+													<b>Languages used:</b> Terraform, Python, JavaScript, HTML5, CSS.
+													<center><button id="closeCRCDialog">Close</button></center>
+												</p>
+												
+												<h4>Background</h4>
+												<p>
+													If you're unfamiliar with the <a href="https://cloudresumechallenge.dev/docs/the-challenge/aws/">Cloud Resume Challenge</a>, the premise
+													is to host your CV online using a cloud hosting platform. From this point, you slowly bolt on more and more cloud features, until you've
+													familiarised yourself with some of the most common cloud services for your chosen cloud platform. 
+												</p>
+												<p>
+													Although I had been reviewing clients' cloud configurations as a penetration tester, I hadn't had much exposure to configuring and deploying 
+													cloud services during my career. Having achieved the Associate Cloud Engineer certification for Google Cloud in 2023, this was my first foray 
+													into Amazon's cloud offering, and this challenge felt like the perfect way to upskill in a new technology and practise my coding skills.
+												</p>
 
-											<!-- Project Dialogs -->
-											<dialog id="sampleDialog">
-												<h2>This is a test dialog.</h2>
-												<p>Lorem ipsum la di da what am I going to eat for dinner tonight?</p>
-												<center><button id="closeDialog">Close dialog</button></center>
+												<h4>Proof of concept</h4>
+												<p>
+													As mentioned above, the challenge has you create the foundational building blocks first, and this starts with converting your resume into HTML
+													and building out a static website hosted in Amazon S3. While I wanted to improve my core coding skills, web design was not the skillset I was focused
+													on displaying; to save time and deploy a pretty, yet responsive website, I used a portfolio template courtesy of <a href="https://html5up.net">HTML UP</a>
+													and modified to my liking before uploading the files to an S3 bucket. 
+												</p>
+												<p>
+													I used Amazon CloudFront to configure a distribution in order to enforce access via HTTPS only, and then Amazon Route 53 to configure the DNS settings 
+													to serve the contents of the bucket using a custom domain name. In order to resolve a browser warning upon loading the site, I had to use the AWS 
+													Certificate Manager to generate a custom SSL certificate for the custom domain name. At this point, I found that I had to include the 'https://www.' 
+													prefix when trying to navigate to my site, but I overcame this by re-generating the SSL certificate for both the root domain and all its subdomains 
+													through the use of a wildcard (e.g. *.domain.com), and re-configuring my CloudFront distribution to force access through HTTPS - a simple tickbox that I 
+													had missed during the initial setup. 
+												</p>
+												<p>
+													Now that I had my frontend served reliably over HTTPS using a custom domain name, I had to create a backend to store the value for a website view counter. 
+													This led me to creating a Python-based Lambda to act as an API. This API would be called on website load to retrieve the value from within a DynamoDB table, 
+													which was then displayed on the frontend using a small piece of JavaScript code.
+												</p>
+
+												<h4>CI/CD</h4>
+												<p>This is the paragraph where I briefly talk about GitHub Actions. Technically this should've been done after Terraform, but I was making lots of small changes
+													so it was useful to see these reflected as I was learning and it was so straight forward.
+												</p>
+												
+												<h4>Transforming infrastructure into code</h4>
+												<p>
+													Having completed both the frontend and backend aspects of the proof of concept using the Amazon Web Console, the next step is to transform this infrastructure 
+													into code, aptly named infrastructure-as-code (or IaC for short). I have chosen to learn Terraform in order to implement this, as it's a widely used 
+													technology and will help my transition into a DevOps Engineering role in the future. 
+												</p>
+												<p>
+													This project is still ongoing, albeit in its final stages, as I upskill in Terraform and slowly test my code in a separate repository to ensure it is 
+													mirroring the infrastructure I have created already. While I am aware that there is an import feature within Terraform, I am trying to learn to make 
+													the infrastructure from 'scratch' (and also using modules where it makes sense to).
+												</p>
 											</dialog>
 										</div>
-										<!-- Discord Dungeon Crawler thumbnail-->		
+										<!-- Python/Bash automations dialog-->		
 										<div class="col-4 col-6-medium col-12-small">
 											<a href="#" class="image fit"><img src="images/pic02.jpg" alt=""></a>
-											<center><p>Python/Bash automations. Coming soon!</p></center>
+											<center><p>Python/Bash automations</p></center>
 										</div>
-										<!-- Discord Dungeon Crawler thumbnail-->		
+										<!-- Discord Dungeon Crawler dialog -->
 										<div class="col-4 col-6-medium col-12-small">
-											<a href="#" class="image fit"><img src="images/pic02.jpg" alt=""></a>
-											<center><p>Python/Bash automations. Coming soon!</p></center>
+											<a id="openXYZDialog" class="image fit"><img src="images/pic03.jpg" alt=""></a>
+											<center>Discord Bot - Dungeon Crawler</center>
+											<dialog id="XYZDialog">
+												<h2>Discord Bot - Dungeon Crawler</h2>
+												<center>
+													<p>Super cool test project.</p>
+													<button id="closeXYZDialog">Close dialog</button>
+												</center>
+											</dialog>
 										</div>
-										<!-- Discord Dungeon Crawler thumbnail-->		
+										<!-- Sudoku Solver thumbnail-->		
 										<div class="col-4 col-6-medium col-12-small">
 											<a href="#" class="image fit"><img src="images/pic02.jpg" alt=""></a>
-											<center><p>Python/Bash automations. Coming soon!</p></center>
+											<center><p>Sudoku Solver. Coming soon!</p></center>
+										</div>
+										<!-- Placeholder project thumbnail-->		
+										<div class="col-4 col-6-medium col-12-small">
+											<a href="#" class="image fit"><img src="images/pic02.jpg" alt=""></a>
+											<center><p>Placeholder project</p></center>
+										</div>
+										<!-- Placeholder project thumbnail-->		
+										<div class="col-4 col-6-medium col-12-small">
+											<a href="#" class="image fit"><img src="images/pic02.jpg" alt=""></a>
+											<center><p>Placeholder project</p></center>
 										</div>
 									</div>
 								</section>
@@ -214,6 +283,32 @@
 					</div>
 
 			</div>
+		<!-- Project Dialog Template 
+			<div class="col-4 col-6-medium col-12-small">
+											<a id="openEXAMPLEDialog" class="image fit"><img src="images/pic01.jpg" alt=""></a>
+											<center><p>Example Project Title Text</p></center>
+											<dialog id="EXAMPLEDialog">
+												<h2>Example Project Title Text</h2>
+												<div align=right>
+													<i>(Tech/languages used)</i>
+												</div>
+												<br>
+												<center><img src="images/EXAMPLE_PROJECT.png" alt=""></center>
+												<h4>TL;DR</h4>
+												<p>
+													<b>AWS components:</b> S3, Lambda, IAM, DynamoDB, CloudFront, Route 53.
+													<br>
+													<b>CI/CD pipeline:</b> Automated using GitHub Actions.
+													<br>
+													<b>Languages used:</b> Terraform, Python, JavaScript, HTML5, CSS.
+													<center><button id="closeEXAMPLEDialog">Close</button></center>
+												</p>
+												
+												<h4>Project Description</h4>
+												<p>Lorem ipsum...</p>
+											</dialog>
+										</div>
+		-->
 
 		<!-- Scripts -->
 			<script src="assets/js/jquery.min.js"></script>

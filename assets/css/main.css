@@ -1301,6 +1301,12 @@ input, select, textarea {
 		backdrop-filter: blur(2px);
 	}
 	
+	dialog {
+		max-width: 1000px;
+		border: 0;
+		box-shadow: 0 0 3em rgb(0 0 0 / 0.9);
+	}
+	
 	html {
 		box-sizing: border-box;
 	}
