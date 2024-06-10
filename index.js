@@ -6,3 +6,18 @@ async function updateCounter(){
     counter.innerHTML = ` Website views: ${data}`;
 }
 updateCounter();
+
+// Controlling the behaviour of the HTML dialogue elements in the Projects tab
+const crcDialog = document.getElementById('sampleDialog');
+const openButton = document.getElementById('openDialog');
+const closeButton = document.getElementById('closeDialog');
+
+// Event listener to open the dialog
+openButton.addEventListener('click', () => {
+  crcDialog.showModal();
+});
+
+// Event listener to close the dialog
+closeButton.addEventListener('click', () => {
+  crcDialog.close();
+});
