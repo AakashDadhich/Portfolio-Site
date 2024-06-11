@@ -71,15 +71,15 @@
 								</table>
 								<ul>
 									<li>
-										<b>Spearheaded the delivery of five high-profile cybersecurity epics</b> for a critical UK government cloud platform,
+										<b>Spearheaded the delivery of five high-profile cybersecurity epics</b> for a critical UK government AWS-based platform,
 										 <b>significantly reducing the overall risk posture and accelerating the go-live date.</b>
 									</li>
 									<li>
 										Managed a dynamic team of 6 DevSecOps Engineers in an agile manner, <b>setting and achieving fortnightly sprint objectives</b> 
-										and ensuring timely delivery of each epic.
+										and ensuring timely delivery of each epic while following best practices.
 									</li>
 									<li>
-										Demonstrated <b>dept upward management of senior stakeholders</b> to establish and maintain strong rapport between organisations.
+										Demonstrated <b>adept upward management of senior stakeholders</b> to establish and maintain strong rapport between organisations.
 									</li>
 									<li>
 										Conducted comprehensive gap analyses aligned with <b>NIST Cybersecurity Framework (v1.1 and v2.0)</b> across seven business 
@@ -137,14 +137,14 @@
 									<h2>Some projects of mine</h2>
 								</header>
 								<p>
-									You can find a portfolio of my most recent side projects below, most of which were created
+									You can find a portfolio of some of my recent side projects below, most of which were created
 									for me to learn a new technology and pushing myself out of my comfort zone. 
 								</p>
 								<section>
 									<div class="row">
-										<!-- Cloud Resume Challenge dialog-->
+										<!-- Cloud Resume Challenge dialog (CRCDialog)-->
 										<div class="col-4 col-6-medium col-12-small">
-											<a id="openCRCDialog" class="image fit"><img src="images/pic01.jpg" alt=""></a>
+											<a id="openCRCDialog" class="image fit"><img src="images/CRC-thumbnail.png" alt=""></a>
 											<center><p>AWS Cloud Resume Challenge</p></center>
 											<dialog id="CRCDialog">
 												<h2>AWS Cloud Resume Challenge</h2>
@@ -160,34 +160,37 @@
 													<b>CI/CD pipeline:</b> Automated using GitHub Actions.
 													<br>
 													<b>Languages used:</b> Terraform, Python, JavaScript, HTML5, CSS.
+													<br>
+													<b>GitHub repo:</b> <a href="https://github.com/AakashDadhich/portfolio2024-frontend" target="_blank">available here</a>
 													<center><button id="closeCRCDialog">Close</button></center>
 												</p>
 												
 												<h4>Background</h4>
 												<p>
-													If you're unfamiliar with the <a href="https://cloudresumechallenge.dev/docs/the-challenge/aws/">Cloud Resume Challenge</a>, the premise
+													If you're unfamiliar with the <a href="https://cloudresumechallenge.dev/docs/the-challenge/aws/" target="_blank">Cloud Resume Challenge</a>, the premise
 													is to host your CV online using a cloud hosting platform. From this point, you slowly bolt on more and more cloud features, until you've
 													familiarised yourself with some of the most common cloud services for your chosen cloud platform. 
 												</p>
 												<p>
-													Although I had been reviewing clients' cloud configurations as a penetration tester, I hadn't had much exposure to configuring and deploying 
-													cloud services during my career. Having achieved the Associate Cloud Engineer certification for Google Cloud in 2023, this was my first foray 
-													into Amazon's cloud offering, and this challenge felt like the perfect way to upskill in a new technology and practise my coding skills.
+													Although I'd reviewed clients' cloud configurations as a penetration tester, I hadn't had much exposure to configuring and deploying 
+													cloud services during my career. Achieving the Associate Cloud Engineer certification for Google Cloud in 2023 piqued my interest in cloud 
+													security, and with this being my first foray into Amazon's cloud offering, this challenge felt like the perfect way to upskill in a 
+													new technology while practising my coding skills.
 												</p>
 
 												<h4>Proof of concept</h4>
 												<p>
 													As mentioned above, the challenge has you create the foundational building blocks first, and this starts with converting your resume into HTML
 													and building out a static website hosted in Amazon S3. While I wanted to improve my core coding skills, web design was not the skillset I was focused
-													on displaying; to save time and deploy a pretty, yet responsive website, I used a portfolio template courtesy of <a href="https://html5up.net">HTML UP</a>
+													on displaying; to save time and deploy a pretty yet responsive website, I used a portfolio template courtesy of <a href="https://html5up.net">HTML5 UP</a>
 													and modified to my liking before uploading the files to an S3 bucket. 
 												</p>
 												<p>
-													I used Amazon CloudFront to configure a distribution in order to enforce access via HTTPS only, and then Amazon Route 53 to configure the DNS settings 
+													I then used Amazon CloudFront to configure a distribution in order to allow access via HTTPS, and Amazon Route 53 to configure the DNS settings 
 													to serve the contents of the bucket using a custom domain name. In order to resolve a browser warning upon loading the site, I had to use the AWS 
-													Certificate Manager to generate a custom SSL certificate for the custom domain name. At this point, I found that I had to include the 'https://www.' 
-													prefix when trying to navigate to my site, but I overcame this by re-generating the SSL certificate for both the root domain and all its subdomains 
-													through the use of a wildcard (e.g. *.domain.com), and re-configuring my CloudFront distribution to force access through HTTPS - a simple tickbox that I 
+													Certificate Manager to generate a custom SSL certificate for my domain name. At this point, I found that I had to include the 'https://www.' 
+													prefix when trying to navigate to my site or else it wouldn't resolve, but I overcame this by re-generating the SSL certificate for both the root domain and all its subdomains 
+													through the use of a wildcard (e.g. *.domain.com), and re-configuring my CloudFront distribution to force all access through HTTPS only - a simple tickbox that I 
 													had missed during the initial setup. 
 												</p>
 												<p>
@@ -197,14 +200,18 @@
 												</p>
 
 												<h4>CI/CD</h4>
-												<p>This is the paragraph where I briefly talk about GitHub Actions. Technically this should've been done after Terraform, but I was making lots of small changes
-													so it was useful to see these reflected as I was learning and it was so straight forward.
+												<p>
+													I chose to use GitHub Actions for the CI/CD pipeline since I was already using GitHub for version control. The behaviour I was hoping to achieve was: upon 
+													pushing local code to GitHub, it would automatically upload my repo into the S3 bucket, thus updating my live website. Whilst researching how to achieve 
+													this, I learned of the GitHub Marketplace where I found the <a href="https://github.com/marketplace/actions/s3-sync" target="_blank">S3 Sync</a> Action. I followed the simple 
+													instructions in order to utilise this within my project, and it successfully uploaded my files to my S3 bucket! This may have kickstarted an obsession with 
+													automation...
 												</p>
 												
 												<h4>Transforming infrastructure into code</h4>
 												<p>
 													Having completed both the frontend and backend aspects of the proof of concept using the Amazon Web Console, the next step is to transform this infrastructure 
-													into code, aptly named infrastructure-as-code (or IaC for short). I have chosen to learn Terraform in order to implement this, as it's a widely used 
+													into code, using the aptly named term 'infrastructure-as-code' (or IaC for short). I have chosen to learn Terraform in order to implement this, as it's a widely used 
 													technology and will help my transition into a DevOps Engineering role in the future. This has also allowed me to become familiar with the AWS CLI, as well as 
 													best practices for setting up an IAM user group and user to provide Terraform the necessary permissions to deploy infrastructure.
 												</p>
@@ -213,40 +220,117 @@
 													mirroring the infrastructure I have created already. While I am aware that there is an import feature within Terraform, I am trying to learn to make 
 													the infrastructure from 'scratch' (and also using modules where it makes sense to). This section of the post will be updated as soon as the project has completed!
 												</p>
+												<h4>Lessons learned</h4>
+												<p>
+													I've developed my skills a lot during this project, from practising Python & JavaScript, to deep-diving into the configuration of AWS services. However, the most 
+													important lesson I learned was to avoid reinventing the wheel. By using existing solutions for tasks like creating websites or automating jobs 
+													with GitHub Actions, I sped up the process and focused on deploying side projects faster. This approach also aligns with good business practices, i.e. using 
+													programming modules or security templates to make developers use best practices and to ensure compliance with security regulations.
+												</p>
+												<p>
+													Previously, I would try to master an entire topic before starting a project, which was time-consuming and often led to incomplete projects. This time, 
+													I used ready-made templates where appropriate, allowing me to focus on the skills I wanted to develop. I realised I don't need to learn everything 
+													from scratch; I can leverage my existing technical skills and experience to adapt and complete tasks efficiently. I'm excited to finish this project 
+													and move on to the next one!
+												</p>
+												<p>
+													Thanks for reading. You can close this dialog by hitting Esc, or scrolling back to the top and pressing the 'Close' button.
+												</p>
+												
 											</dialog>
 										</div>
-										<!-- Python/Bash automations dialog-->		
+										<!-- Python/Bash scripts dialog (PBSDialog)-->		
 										<div class="col-4 col-6-medium col-12-small">
-											<a href="#" class="image fit"><img src="images/pic02.jpg" alt=""></a>
-											<center><p>Python & Bash Automations</p></center>
+											<a id="openPBSDialog" class="image fit"><img src="images/PBS-thumbnail.png" alt=""></a>
+											<center><p>Bash Scripts</p></center>
+											<dialog id="PBSDialog">
+												<h2>Bash Scripts</h2>
+												<div align=right>
+													<i>Shell Scripting on Linux</i>
+												</div>
+												<br>
+												<center><img src="images/PBS-thumbnail.png" alt=""></center>
+												<p>
+													As a penetration tester, I spent a lot of time in the command line interface, working with shell-based tools 
+													and constantly completing repetitive actions, such as creating directory structures or parsing important info from large tool outputs. 
+													I decided to build some short scripts to streamline my workflow.
+												</p>
+												<h4>NSE Library Search</h4>
+												<p>
+													Nmap, a popular port-scanning tool, is a staple in any pentester's toolkit. Nmap has a huge repository of Lua scripts at its 
+													disposal, and often the junior members I mentored would forget where these were stored, or what each script did. I created a 
+													short and sweet shell script to speed up the searching process. You can <a href="https://github.com/AakashDadhich/NSE-Library-Search" target="_blank">
+														view it on GitHub here</a> and see the example usage and output. 
+													
+												</p>
+												<h4>Testssl.sh Parser</h4>
+												<p>
+													Testssl.sh was also a staple when I needed to check the security posture of a site's SSL certificate. The nature of the tool's output 
+													meant that there were many log files to view when you had a large scope of sites to assess, so I created a shell script to recursively parse all the 
+													log files in the directory that the tool was ran in, and output which hosts were affected by which misconfigurations. This code never left 
+													the draft state and followed absolutely no best practices, but it served a purpose and was a huge time-saver! 
+												</p>
+												<p>
+													I'm currently in the process of rewriting this far more efficiently, using Python's CSV library to parse the CSV output files from testssl.sh, 
+													rather than using grep to search through the log files, but you can view it <a href="https://github.com/AakashDadhich/Testssl.sh-2-Text" target="_blank">
+														on GitHub here</a>. 
+													
+												</p>
+												<h4>Directory Structure Creation</h4>
+												<p>
+													This is just a simple script that I used at the beginning of each new security assessment to build out a folder structure so I could neatly 
+													save my output files in an organised way. For example, it creates folders for Burpsuite, Nmap, Testssl and screenshots. Within 
+													the Nmap folder are three child folders, for TCP, UDP and Fast scan outputs to be stored in respectively. 
+												</p>
+												<p>
+													The reason this was so effective was because I set an alias to run the script which took two arguments: the name of the engagement and the month. 
+													This created an easily memorable structure within my Documents sorted by client name, and then by date just by simply running 
+													"pentest [client] [month]"! You can <a href="https://github.com/AakashDadhich/New-Pentest-Directory" target="_blank"> view it on GitHub here</a>. 
+													<center><button id="closePBSDialog">Close</button></center>
+												</p>
+											</dialog>
 										</div>
 										<!-- Discord Dungeon Crawler dialog -->
 										<div class="col-4 col-6-medium col-12-small">
-											<a id="openXYZDialog" class="image fit"><img src="images/pic03.jpg" alt=""></a>
+											<a id="openDDCDialog" class="image fit"><img src="images/DDC-thumbnail.png" alt=""></a>
 											<center>Discord Bot - Dungeon Crawler</center>
-											<dialog id="XYZDialog">
+											<dialog id="DDCDialog">
 												<h2>Discord Bot - Dungeon Crawler</h2>
-												<center>
-													<p>Super cool test project.</p>
-													<button id="closeXYZDialog">Close dialog</button>
-												</center>
+												<div align=right>
+													<i>Node.js, Discord.js</i>
+												</div>
+												<br>
+												<center><img src="images/DDC-thumbnail.png" alt=""></center>
+												<h4>Background</h4>
+													<p>
+														Created with a partner during 2018's LincolnHack hackathon, we took inspiriation from "Twitch Plays Pokemon" but with our own twist. 
+														We used the Discord Bot API to create a Dungeon Crawler where people in the server react to a message to control the player on a 
+														procedurally generated map. You can <a href="https://github.com/AakashDadhich/DiscordPlaysDungeonCrawler" target="_blank"> view the project on GitHub here</a>.
+													</p>
+												<h4>The project</h4>
+													<p>
+														The project was made using Node.js and Discord.js. Using a Discord bot, a map is procedurally generated along with items and enemies 
+														using emojis. The bot also posts a message once the map has been generated, which checks for reactions on said message - these are to 
+														control the player character. Once the first reaction is received, a 5 second timer starts and the highest count of reactions wins 
+														and that direction is taken. 
+														<center><img src="images/DDC-1.png" alt="" width="600px" height="auto"></center>
+													</p>
+													<p>
+														When a player runs into an item or an enemy, that enemy's movement is frozen and it is forced to fight. There is a health and score 
+														system too, where the player can choose to 'run into' enemy until it is dead, and will be granted score - or they can run around the 
+														map collecting items which also adds to score.
+														<center><img src="images/DDC-2.png" alt="" width="600px" height="auto"></center> 
+													</p>
+													<h4>Lessons learned</h4>
+													<p>
+														Managing to create this whole project within a 24 hour window was really challenging. It was my first time ever using JavaScript in 
+														depth, and using Node.js introduced me to server side programming; we used Node.js so that we'd be able to communicate with the Discord API 
+														and be able to alter and update the map. It was also one of my first times collaboratively using GitHub, and we used the GitKraken GUI 
+														this time. It made the experience really streamlined and easy to use, and easy to fix merge conflicts.
+														<center><button id="closeDDCDialog">Close</button></center>
+													</p>	
 											</dialog>
-										</div>
-										<!-- Sudoku Solver thumbnail-->		
-										<div class="col-4 col-6-medium col-12-small">
-											<a href="#" class="image fit"><img src="images/pic02.jpg" alt=""></a>
-											<center><p>Sudoku Solver - Coming soon!</p></center>
-										</div>
-										<!-- Placeholder project thumbnail-->		
-										<div class="col-4 col-6-medium col-12-small">
-											<a href="#" class="image fit"><img src="images/pic02.jpg" alt=""></a>
-											<center><p>Placeholder Project</p></center>
-										</div>
-										<!-- Placeholder project thumbnail-->		
-										<div class="col-4 col-6-medium col-12-small">
-											<a href="#" class="image fit"><img src="images/pic02.jpg" alt=""></a>
-											<center><p>Placeholder Project</p></center>
-										</div>
+										</div>		
 									</div>
 								</section>
 							</article>
@@ -260,8 +344,8 @@
 									or connect with me via LinkedIn or e-mail, you can find the relevant links below. </p>
 								<table>
 									<tr>
-										<th><a href="https://github.com/AakashDadhich" class="icon brands fa-github fa-3x" style="color:#333333"></a></th>
-										<th><a href="https://linkedin.com/in/AakashDadhich" class="icon brands fa-linkedin fa-3x" style="color:#333333"></a></th>
+										<th><a href="https://github.com/AakashDadhich"  target="_blank" class="icon brands fa-github fa-3x" style="color:#333333"></a></th>
+										<th><a href="https://linkedin.com/in/AakashDadhich"  target="_blank" class="icon brands fa-linkedin fa-3x" style="color:#333333"></a></th>
 										<th><a href="mailto:aakash@hotmail.co.uk" class="icon solid fa-at fa-3x" style="color:#333333"></a></th>
 									</tr>
 									<tr>
@@ -276,7 +360,9 @@
 				<!-- Footer -->
 					<div id="footer">
 						<ul class="copyright">
-							<li><a href="#contact">Download my CV (.pdf) here</a></li>
+							<!-- CV download TBC
+								<li><a href="#contact">Download my CV (.pdf) here</a></li> 
+							-->
 							<!-- Below text is placeholder if DynamoDB cannot be read. If error occurs, 
 								review DynamoDB or Lambda functions's CORS settings.-->
 							<div class="counter-number">Couldn't read website views.</div>
@@ -284,8 +370,8 @@
 					</div>
 
 			</div>
-		<!-- Project Dialog Template 
-			<div class="col-4 col-6-medium col-12-small">
+									<!-- Project Dialog Template 
+										<div class="col-4 col-6-medium col-12-small">
 											<a id="openEXAMPLEDialog" class="image fit"><img src="images/pic01.jpg" alt=""></a>
 											<center><p>Example Project Title Text</p></center>
 											<dialog id="EXAMPLEDialog">
@@ -309,7 +395,7 @@
 												<p>Lorem ipsum...</p>
 											</dialog>
 										</div>
-		-->
+									-->
 
 		<!-- Scripts -->
 			<script src="assets/js/jquery.min.js"></script>

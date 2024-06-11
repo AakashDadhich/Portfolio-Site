@@ -8,7 +8,7 @@ async function updateCounter(){
 updateCounter();
 
 // Controlling the behaviour of the HTML dialogue elements in the Projects tab
-// Cloud Resume Challenge (CRC) modal
+// Cloud Resume Challenge modal (CRCDialog)
 const crcDialog = document.getElementById('CRCDialog');
 const openCRCButton = document.getElementById('openCRCDialog');
 const closeCRCButton = document.getElementById('closeCRCDialog');
@@ -21,16 +21,29 @@ closeCRCButton.addEventListener('click', () => {
   crcDialog.close();
 });
 
-
-// XYZ Modal
-const xyzDialog = document.getElementById('XYZDialog');
-const openXYZButton = document.getElementById('openXYZDialog');
-const closeXYZButton = document.getElementById('closeXYZDialog');
-// Event listener to open the XYZ dialog
-openXYZButton.addEventListener('click', () => {
-  xyzDialog.showModal();
+// Python & Bash Scripting modal (PBSDialog)
+const pbsDialog = document.getElementById('PBSDialog');
+const openPBSButton = document.getElementById('openPBSDialog');
+const closePBSButton = document.getElementById('closePBSDialog');
+// Event listener to open the PBS dialog
+openPBSButton.addEventListener('click', () => {
+  pbsDialog.showModal();
 });
-// Event listener to close the XYZ dialog
-closeXYZButton.addEventListener('click', () => {
-  xyzDialog.close();
+// Event listener to close the PBS dialog
+closePBSButton.addEventListener('click', () => {
+  pbsDialog.close();
+});
+
+
+// Discord Dungeon Crawler Modal (DDCDialog)
+const ddcDialog = document.getElementById('DDCDialog');
+const openDDCButton = document.getElementById('openDDCDialog');
+const closeDDCButton = document.getElementById('closeDDCDialog');
+// Event listener to open the DDC dialog
+openDDCButton.addEventListener('click', () => {
+  ddcDialog.showModal();
+});
+// Event listener to close the DDC dialog
+closeDDCButton.addEventListener('click', () => {
+  ddcDialog.close();
 });
