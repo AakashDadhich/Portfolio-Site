@@ -138,7 +138,8 @@
 								</header>
 								<p>
 									You can find a portfolio of some of my recent side projects below, most of which were created
-									for me to learn a new technology and pushing myself out of my comfort zone. 
+									for me to learn a new technology and pushing myself out of my comfort zone. Click on a thumbnail 
+									to view a corresponding description for each project. 
 								</p>
 								<section>
 									<div class="row">
@@ -242,39 +243,39 @@
 										<!-- Python/Bash scripts dialog (PBSDialog)-->		
 										<div class="col-4 col-6-medium col-12-small">
 											<a id="openPBSDialog" class="image fit"><img src="images/PBS-thumbnail.png" alt=""></a>
-											<center><b><p>Bash Scripts</p></b></center>
+											<center><b><p>Python/Bash Scripts</p></b></center>
 											<dialog id="PBSDialog">
-												<h2>Bash Scripts</h2>
+												<h2>Python/Bash Scripts</h2>
 												<div align=right>
-													<i>Shell Scripting on Linux</i>
+													<i>Python & Bash Scripting on Linux</i>
 												</div>
 												<br>
 												<center><img src="images/PBS-thumbnail.png" alt=""></center>
 												<p>
 													As a penetration tester, I spent a lot of time in the command line interface, working with shell-based tools 
-													and constantly completing repetitive actions, such as creating directory structures or parsing important info from large tool outputs. 
+													and constantly completing repetitive actions, such as parsing relevant info from large tool outputs or creating directory structures. 
 													I decided to build some short scripts to streamline my workflow.
+												</p>
+												<h4>Testssl CSV Parser - Python</h4>
+												<p>
+													Testssl.sh is a go-to CLI tool when I need to check the security posture of a site's SSL certificate. The nature of the tool's output 
+													meant that there were many log files or messy CSV files to sort through when you had a large scope of sites to assess. I created this 
+													Python script to parse large CSV output files into a nicely formatted textfile, organising affected hosts by their issues.
+													This script is a newer, more efficient version of the Bash script below. You can view the code 
+													<a href="https://github.com/AakashDadhich/testssl-parser-python" target="_blank">on GitHub here</a>.
 												</p>
 												<h4>NSE Library Search</h4>
 												<p>
-													Nmap, a popular port-scanning tool, is a staple in any pentester's toolkit. Nmap has a huge repository of Lua scripts at its 
+													Nmap, a popular port-scanning tool, is also a staple in any pentester's toolkit. Nmap has a huge repository of Lua scripts at its 
 													disposal, and often the junior members I mentored would forget where these were stored, or what each script did. I created a 
 													short and sweet shell script to speed up the searching process. You can <a href="https://github.com/AakashDadhich/nse-lib-search" target="_blank">
 														view it on GitHub here</a> and see the example usage and output. 
-													
 												</p>
-												<h4>Testssl.sh Parser</h4>
+												<h4>Testssl Log Parser - Bash</h4>
 												<p>
-													Testssl.sh was also a staple when I needed to check the security posture of a site's SSL certificate. The nature of the tool's output 
-													meant that there were many log files to view when you had a large scope of sites to assess, so I created a shell script to recursively parse all the 
-													log files in the directory that the tool was ran in, and output which hosts were affected by which misconfigurations. This code never left 
-													the draft state and followed absolutely no best practices, but it served a purpose and was a huge time-saver! 
-												</p>
-												<p>
-													I'm currently in the process of rewriting this far more efficiently, using Python's CSV library to parse the CSV output files from testssl.sh, 
-													rather than using grep to search through the log files, but you can view it <a href="https://github.com/AakashDadhich/testssl-parser-bash" target="_blank">
+													This is the deprecated version of my Testssl.sh parser, but written in Bash. This code never left the draft state, so was messy and inefficient and 
+													followed absolutely no best practices, but it served a purpose and was a huge time-saver! You can view it <a href="https://github.com/AakashDadhich/testssl-parser-bash" target="_blank">
 														on GitHub here</a>. 
-													
 												</p>
 												<h4>Directory Structure Creation</h4>
 												<p>
